@@ -5,8 +5,8 @@
  *	To design your customized hardware, visit to www.nuttyengineer.com 
  *  Youtube Channel: https://www.youtube.com/c/SMEDehradun
  * pin description: 
- * DHT11- D5
- *Fan - D2
+ * DHT11 / dht22- D5
+ *Relay for Fan - D2
  *
  *Virtual pin description
  * Virtual led for Fan- V0
@@ -47,7 +47,8 @@ BLYNK_WRITE(V3)
 void setup()
 {
   Serial.begin(9600);
-  Serial.println("Serial begin at 9600");
+  pinMode(FAN_PIN, OUTPUT);
+  digitalWrite(FAN_PIN, LOW);
   BlynkEdgent.begin();
   delay(2000);
   dht.begin();
@@ -62,15 +63,10 @@ void dht_data()
 {
   h = dht.readHumidity();
   t = dht.readTemperature();
-
-  Serial.print("Hum: ");
-  Serial.print(h);
-  Serial.print("Temp: ");
-  Serial.println(t);
   if (Val > t)
   {
-    Serial.println("Fan ON");
-    digitalWrite(FAN_PIN, HIGH);
+    Serial.println("Fan Off");
+    digitalWrite(FAN_PIN, LOW);
     FAN.off();
 }
   else {
