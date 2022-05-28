@@ -20,8 +20,8 @@
 #include "DHT.h"
 DHT dht(D5, DHT11);
 
-#define BLYNK_TEMPLATE_ID "TMPL4O3Es9K8"
-#define BLYNK_DEVICE_NAME "IoT Automation Fan"
+#define BLYNK_TEMPLATE_ID "TMPL4O3Es9K8"  // change your template id here
+#define BLYNK_DEVICE_NAME "IoT Automation Fan"  // change your device name here
 
 #define BLYNK_FIRMWARE_VERSION        "0.1.0"
 #define BLYNK_PRINT Serial 
